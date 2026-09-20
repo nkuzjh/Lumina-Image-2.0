@@ -1,0 +1,54 @@
+{
+  "model_name": "Lumina-Image-2.0",
+  "project_root": "/home/jiahao/task/Lumina-Image-2.0",
+  "data_root": "/home/jiahao/task/UniLIP/data/csgo_benchmark_v2",
+  "shared_eval_dir": "/home/jiahao/task/csgo_benchmark_v2_eval_general",
+  "output_root": "/home/jiahao/task/Lumina-Image-2.0/outputs/csgo_benchmark_v2_seen10/Lumina-Image-2.0",
+  "model": {
+    "name": "NextDiT_2B_GQA_patch2_Adaln_Refiner",
+    "base_model_dir": "/home/jiahao/task/Lumina-Image-2.0/checkpoints/Lumina-Image-2.0",
+    "base_model_id": "Alpha-VLLM/Lumina-Image-2.0",
+    "base_model_revision": "53504abd8178b30685b6c4c7a4cd181ff78b73e9",
+    "cap_feat_dim": 2304,
+    "qk_norm": true,
+    "in_channels": 16,
+    "precision": "bf16",
+    "vae_subfolder": "vae",
+    "vae_scale": 0.3611,
+    "vae_shift": 0.1159
+  },
+  "adapter": {
+    "radar_size": 224,
+    "radar_grid": [4, 4],
+    "fourier_frequencies": 8,
+    "task_count": 1
+  },
+  "training": {
+    "train_split": "seen_train",
+    "validation_split": "seen_validation",
+    "max_steps": 50000,
+    "eval_every": 10000,
+    "save_every": 10000,
+    "batch_size_per_gpu": 1,
+    "num_workers": 4,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "grad_clip": 1.0,
+    "log_every": 10,
+    "seed": 0,
+    "snr_type": "lognorm",
+    "do_shift": true,
+    "path_type": "Linear",
+    "prediction": "velocity",
+    "loss_weight": null
+  },
+  "inference": {
+    "image_size": 448,
+    "sampler": "euler",
+    "sampling_steps": 28,
+    "time_shifting_factor": 6,
+    "cfg_scale": 1.0,
+    "seed": 0,
+    "jpeg_quality": 95
+  }
+}

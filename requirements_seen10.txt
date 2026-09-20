@@ -1,0 +1,9 @@
+# PyTorch and FlashAttention are installed/validated separately because their
+# CUDA ABI and GPU-architecture support must match the host.
+diffusers
+huggingface_hub
+matplotlib
+numpy
+Pillow
+safetensors
+torchdiffeq

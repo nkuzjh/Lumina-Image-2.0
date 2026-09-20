@@ -1,0 +1,7 @@
+.venv/
+.venv.incomplete.*/
+.setup_csgo_seen10.lock
+checkpoints/
+outputs/
+__pycache__/
+*.py[cod]
